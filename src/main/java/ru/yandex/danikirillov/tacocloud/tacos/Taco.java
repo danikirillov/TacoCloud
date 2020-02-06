@@ -2,10 +2,15 @@ package ru.yandex.danikirillov.tacocloud.tacos;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
 public class Taco {
+    private long id;
+
+    private Date createdAt;
+
     @NotNull(message = "name required")
     private String name;
 
@@ -18,6 +23,14 @@ public class Taco {
     public Taco(String name, List<Ingredient> ingredients) {
         this.name = name;
         this.ingredients = ingredients;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
     public String getName() {
