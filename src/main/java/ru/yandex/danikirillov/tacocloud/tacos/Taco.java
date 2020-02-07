@@ -41,6 +41,14 @@ public class Taco {
         return ingredients;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
