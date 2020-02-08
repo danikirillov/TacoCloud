@@ -22,7 +22,8 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/design")
-@SessionAttributes("order")//утверждает хранение аттрибута order во всех request ах этой сессии.(сохранение заказа в бд будет происходить в OrderController)
+@SessionAttributes("order")
+//утверждает хранение аттрибута order во всех request ах этой сессии.(сохранение заказа в бд будет происходить в OrderController)
 public class DesignTacoController {
     private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(DesignTacoController.class);
 
@@ -35,22 +36,6 @@ public class DesignTacoController {
         this.tacoRepository = tacoRepository;
     }
 
-    @GetMapping
-    public String showDesignFromForm(Model model) {
-        model.addAttribute("design", new Taco());
-        return "design";
-    }
-
-    @PostMapping
-    public String processDesign(@Valid Taco design, Errors errors, @ModelAttribute Order order) {
-        if (errors.hasErrors())
-            return "design";
-
-        order.addDesign(tacoRepository.save(design));
-
-        return "redirect:/orders/current";
-    }
-
     @ModelAttribute(name = "order")
     public Order order() {
         return new Order();
@@ -61,12 +46,27 @@ public class DesignTacoController {
         return new Taco();
     }
 
-    @ModelAttribute
-    public void addIngredientsToModel(Model model) {
+    private void fillListIngredients(Model model) {
         List<Ingredient> ingredients = new ArrayList<>();
         ingredientRepository.findAll().forEach(ingredients::add);
         for (Type type : Ingredient.Type.values())
             model.addAttribute(type.toString().toLowerCase(), filterByType(ingredients, type));
+    }
+
+    @GetMapping
+    public String showDesignForm(Model model) {
+        fillListIngredients(model);
+        return "design";
+    }
+
+    @PostMapping
+    public String processDesign(@Valid Taco design, Errors errors, Model model, @ModelAttribute Order order) {
+        if (errors.hasErrors())
+            return showDesignForm(model);
+
+        order.addDesign(tacoRepository.save(design));
+
+        return "redirect:/orders/current";
     }
 
     private List<Ingredient> filterByType(List<Ingredient> ingredients, Type type) {
