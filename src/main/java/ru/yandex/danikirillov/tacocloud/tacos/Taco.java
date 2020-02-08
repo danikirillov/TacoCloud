@@ -25,30 +25,6 @@ public class Taco {
         this.ingredients = ingredients;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public List<Ingredient> getIngredients() {
-        return ingredients;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setIngredients(List<Ingredient> ingredients) {
-        this.ingredients = ingredients;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -70,4 +46,36 @@ public class Taco {
                 ", ingredients=" + ingredients +
                 '}';
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
 }
