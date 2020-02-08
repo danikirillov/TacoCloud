@@ -16,15 +16,15 @@ public class JdbcIngredientRepository implements IngredientRepository {
     public JdbcIngredientRepository(JdbcTemplate jdbc) {
         this.jdbc = jdbc;
     }
+
     @Override
     public Iterable<Ingredient> findAll() {
-        return jdbc.query("select id, name, type from Ingredient",
-                this::mapRowToIngredient);
-    }@Override
+        return jdbc.query("select id, name, type from Ingredient", this::mapRowToIngredient);
+    }
+
+    @Override
     public Ingredient findOne(String id) {
-        return jdbc.queryForObject(
-                "select id, name, type from Ingredient where id=?",
-                this::mapRowToIngredient, id);
+        return jdbc.queryForObject("select id, name, type from Ingredient where id=?", this::mapRowToIngredient, id);
     }
 
     private Ingredient mapRowToIngredient(ResultSet rs, int rowNum) throws SQLException {

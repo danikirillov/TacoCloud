@@ -30,6 +30,7 @@ public class OrderController {
     public String processOrder(@Valid @ModelAttribute(name = "order") Order order, Errors errors, SessionStatus sessionStatus) {
         if (errors.hasErrors())
             return "orderForm";
+
         orderRepository.save(order);
         sessionStatus.setComplete();
         return "redirect:/";
