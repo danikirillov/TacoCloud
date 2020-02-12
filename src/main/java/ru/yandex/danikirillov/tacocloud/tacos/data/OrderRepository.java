@@ -1,7 +1,11 @@
 package ru.yandex.danikirillov.tacocloud.tacos.data;
 
+import org.springframework.data.repository.CrudRepository;
 import ru.yandex.danikirillov.tacocloud.tacos.Order;
 
-public interface OrderRepository {
-    Order save(Order order);
+import java.util.List;
+
+public interface OrderRepository extends CrudRepository<Order, Long> {
+    List<Order> findByZip(String zip);
 }
+
