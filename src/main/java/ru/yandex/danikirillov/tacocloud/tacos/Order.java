@@ -18,9 +18,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "Taco_Order")//указывает таблицу, в котороую будут сохранены данные
-public class Order implements Serializable {
-    //TODO: выяснить почему тут использован serializable
-    private static final long serialVersionUID = 1L;//чтобы норм десериализировалось
+public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
