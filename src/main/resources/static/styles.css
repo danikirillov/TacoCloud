@@ -25,7 +25,7 @@ a {
 }
 
 
-#taco_ordering_block:hover {
+a:hover {
     background-color: #aa6d26;
 }
 
