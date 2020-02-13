@@ -1,6 +1,11 @@
+
+body {
+    font-family: 'DejaVu Sans Mono', monospace;
+}
+
 ul {
     list-style-type: none;
-    margin-bottom: 50px;
+    margin: 0;
     padding: 0;
     overflow: hidden;
     text-align: center;
@@ -8,27 +13,36 @@ ul {
 
 li {
     float: bottom;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
-a {
+a, button {
     display: inline-block;
     text-align: center;
     text-decoration: none;
     align-self: center;
-    background-color: #cfac52;
-    color: #1f6716;
-    border: 1px solid #aa0002;
+    background-color: #ffffff;
+    color: #000000;
+    border: 2px solid #000000;
     border-radius: 80px;
     padding: 10px;
-    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+    font-family: 'DejaVu Sans Mono', monospace;
     font-size: larger;
 }
 
-
 a:hover {
-    background-color: #aa6d26;
+    background-color: #bfb6b7;
 }
 
 .validationError {
     color: #aa0002;
+}
+
+button:hover {
+    background-color: #bfb6b7;
+}
+
+input {
+    margin-bottom: 15px;
 }
