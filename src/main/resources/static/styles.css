@@ -45,4 +45,11 @@ button:hover {
 
 input {
     margin-bottom: 15px;
+    font-family: 'DejaVu Sans Mono', monospace;
+    font-weight: bolder;
+}
+
+input:focus {
+    border-color: black;
+    outline: none;
 }
