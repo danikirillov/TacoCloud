@@ -1,5 +1,6 @@
 
 body {
+    text-align: center;
     font-family: 'DejaVu Sans Mono', monospace;
 }
 
@@ -29,18 +30,16 @@ a, button {
     padding: 10px;
     font-family: 'DejaVu Sans Mono', monospace;
     font-size: larger;
+    outline: none;
 }
 
-a:hover {
+a:hover, button:hover {
     background-color: #bfb6b7;
+    cursor: pointer;
 }
 
 .validationError {
     color: #aa0002;
-}
-
-button:hover {
-    background-color: #bfb6b7;
 }
 
 input {
@@ -52,4 +51,8 @@ input {
 input:focus {
     border-color: black;
     outline: none;
+}
+
+input[type = "checkbox"]:hover {
+    cursor: pointer;
 }
