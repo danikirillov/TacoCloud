@@ -21,6 +21,7 @@ public class Taco {
     private String name;
 
     @ManyToMany(targetEntity = Ingredient.class)//cause taco can have many Ingredient objects, and Ingredient can be part of many tacos
+    @NotNull(message = "You must choose st least 1 ingredient.")
     @Size(min = 1, message = "You must choose st least 1 ingredient.")
     private List<Ingredient> ingredients;
 

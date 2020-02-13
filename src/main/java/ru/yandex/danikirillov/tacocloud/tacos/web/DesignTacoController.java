@@ -24,7 +24,8 @@ import javax.validation.Valid;
 @RequestMapping("/design")
 @SessionAttributes("order")
 //утверждает хранение аттрибута order во всех request ах этой сессии.(сохранение заказа в бд будет происходить в OrderController)
-public class DesignTacoController {
+public class
+DesignTacoController {
     private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(DesignTacoController.class);
 
     private final IngredientRepository ingredientRepository;

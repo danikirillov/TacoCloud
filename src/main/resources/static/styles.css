@@ -1,0 +1,34 @@
+ul {
+    list-style-type: none;
+    margin-bottom: 50px;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+li {
+    float: bottom;
+}
+
+a {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    align-self: center;
+    background-color: #cfac52;
+    color: #1f6716;
+    border: 1px solid #aa0002;
+    border-radius: 80px;
+    padding: 10px;
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+    font-size: larger;
+}
+
+
+#taco_ordering_block:hover {
+    background-color: #aa6d26;
+}
+
+.validationError {
+    color: #aa0002;
+}

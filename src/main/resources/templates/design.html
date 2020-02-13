@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title>Taco Cloud</title>
-   <!-- someday I`ll deal with it <link rel="stylesheet" th:href="@{/styles.css}" />-->
+   <link rel="stylesheet" th:href="@{/styles.css}" />
 </head>
+
 <body>
-<h1>Design your taco!</h1>
-<img th:src="@{/images/TacoCloud.png}"/>
+    <h1>Design your taco!</h1>
 <form method="POST" th:object="${taco}">
 
     <span class="validationError"
