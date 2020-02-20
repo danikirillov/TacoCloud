@@ -13,7 +13,8 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("home");
-        registry.addViewController("/orderComplete").setViewName("orderComplete");
-        registry.addViewController("/error").setViewName("error");
+        registry.addViewController("/orderComplete");
+        registry.addViewController("/error");
+        registry.addViewController("/login");
     }
 }
