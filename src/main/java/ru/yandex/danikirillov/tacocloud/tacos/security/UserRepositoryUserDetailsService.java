@@ -1,6 +1,7 @@
 package ru.yandex.danikirillov.tacocloud.tacos.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -9,6 +10,7 @@ import ru.yandex.danikirillov.tacocloud.tacos.User;
 import ru.yandex.danikirillov.tacocloud.tacos.data.UserRepository;
 
 @Service
+@Primary
 public class UserRepositoryUserDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository;
