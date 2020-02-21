@@ -13,6 +13,6 @@
     <li><img th:src="@{/images/TacoCloud.png}" width="500px"/></li>
     <li><a href="/design" >order a taco</a></li>
 </ul>
-
+<input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
 </body>
 </html>

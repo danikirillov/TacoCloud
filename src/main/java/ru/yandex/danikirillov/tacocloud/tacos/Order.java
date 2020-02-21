@@ -26,6 +26,9 @@ public class Order {
 
     private Date createdAt;
 
+    @ManyToOne
+    private User user;
+
     @NotBlank(message = "Name is required.")
     private String name;
 
@@ -60,5 +63,9 @@ public class Order {
     @PrePersist//метод вызовется перед сохранением данных
     public void setNowAsTheDateOfCreation() {
         this.createdAt = new Date();
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
