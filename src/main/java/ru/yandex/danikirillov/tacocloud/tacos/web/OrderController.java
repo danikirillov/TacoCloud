@@ -1,5 +1,6 @@
 package ru.yandex.danikirillov.tacocloud.tacos.web;
 
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,14 +19,22 @@ import javax.validation.Valid;
 public class OrderController {
     private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(OrderController.class);
     private final OrderRepository orderRepository;
+    private final OrderProperties properties;
 
-    public OrderController(OrderRepository orderRepository) {
+    public OrderController(OrderRepository orderRepository, OrderProperties properties) {
         this.orderRepository = orderRepository;
+        this.properties = properties;
     }
 
     @GetMapping("/current")
     public String showOrderForm() {
         return "orderForm";
+    }
+
+    @GetMapping
+    public String ordersForUser(@AuthenticationPrincipal User user, Model model) {
+        model.addAttribute("orders", orderRepository.findByUserOrderByCreatedAtDesc(user, PageRequest.of(0, properties.getPageSize())));
+        return "orderList";
     }
 
     @PostMapping

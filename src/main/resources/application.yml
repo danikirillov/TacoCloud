@@ -6,3 +6,7 @@ server:
     key-store: classpath:keystore.jks
     key-store-password: FuckSSLPass5
     key-password: FuckSSLPass5
+
+taco:
+  orders:
+    pageSize: 10
