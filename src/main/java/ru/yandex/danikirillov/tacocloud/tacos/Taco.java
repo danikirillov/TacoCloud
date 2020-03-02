@@ -1,6 +1,7 @@
 package ru.yandex.danikirillov.tacocloud.tacos;
 
 import lombok.Data;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @Data
 @Entity
+@RestResource(rel = "tacos", path = "tacos")//чтобы spring rest data не назвала список тако tacoes
 public class Taco {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

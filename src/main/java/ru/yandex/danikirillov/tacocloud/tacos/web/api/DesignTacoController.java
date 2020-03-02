@@ -27,18 +27,6 @@ public class DesignTacoController {
         this.tacoRepository = tacoRepository;
     }
 
-    @GetMapping("/recent")
-    public CollectionModel<TacoRepresentationModel> recentTacos() {
-        PageRequest pageRequest = PageRequest.of(0, 12, Sort.by("createdAt").descending());
-        List<Taco> tacos = tacoRepository.findAll(pageRequest).getContent();
-
-        CollectionModel<TacoRepresentationModel> recentResources = new TacoModelAssembler().toCollectionModel(tacos);
-        recentResources.add(
-                linkTo(methodOn(DesignTacoController.class).recentTacos())
-                        .withRel("recents"));
-        return recentResources;
-    }
-
     @GetMapping("/{id}")
     //with responseEntity you can throw a special response status
     public ResponseEntity<Taco> tacoById(@PathVariable("id") Long id) {
