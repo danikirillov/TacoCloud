@@ -47,8 +47,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "T(java.util.Calendar).DAY_OF_WEEK) != " +
                         "T(java.util.Calendar).MONDAY")
                 // по понедельникам заказ тако недоступен:)
-                .antMatchers("/", "/**").access("permitAll")
+                .antMatchers("/", "/**", "/h2-console/**").access("permitAll")
+                .and().csrf().ignoringAntMatchers("/h2-console/**")
                 .and().formLogin().loginPage("/login")
                 .and().logout().logoutSuccessUrl("/");
+        http.headers().frameOptions().sameOrigin();
     }
 }
